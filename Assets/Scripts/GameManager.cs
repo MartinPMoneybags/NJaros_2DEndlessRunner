@@ -23,20 +23,72 @@ public class GameManager : MonoBehaviour
 
     public int currentCollected; // ToDo refactor this into ammo
 
+    public List<GameObject> activeObstacles;
+
+    public float currentObstacleSpeed;
+    public float maxObstacleSpeed;
+
+    public bool canSpawn = true;
+
+
+
+    public string ScoreDisplay()
+    {
+        return Mathf.RoundToInt(currentScore).ToString();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isPlaying == true)
+        {
+            // Sets the score
+            currentScore += Time.deltaTime;
+        }
+
         if (Input.GetKeyDown("j"))
         {
             ResetGame();
         }
     }
 
+    public void GameOver()
+    {
+        currentScore = 0;
+        isPlaying = false;
+    }
+
     public void ResetGame()
     {
-        isPlaying = false;
+        isPlaying = true;
         currentScore = 0;
         player.SetActive(true);
         currentCollected = 0;
+        foreach (GameObject go in activeObstacles)
+        {
+            Destroy(go);
+        }
+        activeObstacles.Clear();
+        ResumeObstacles();
+    }
+
+    public void PauseObstacles()
+    {
+        foreach (GameObject obstacle in activeObstacles)
+        {
+            Rigidbody2D obstacleRB = obstacle.GetComponent<Rigidbody2D>();
+            obstacleRB.velocity = Vector2.left * 0;
+        }
+    }
+
+    public void ResumeObstacles()
+    {
+        foreach (GameObject obstacle in activeObstacles)
+        {
+            Rigidbody2D obstacleRB = obstacle.GetComponent<Rigidbody2D>();
+            obstacleRB.velocity = Vector2.left * currentObstacleSpeed;
+        }
+
+        canSpawn = true;
     }
 }

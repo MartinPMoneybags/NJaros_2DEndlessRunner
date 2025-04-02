@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
     private bool isJumping;
+    public bool isCrouched;
     private float jumpTimer;
 
 
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -67,6 +68,16 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
             jumpTimer = 0f;
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            GameManager.Instance.PauseObstacles();
+        }
+
+        if (Input.GetButtonUp("Fire2"))
+        {
+            GameManager.Instance.ResumeObstacles();
         }
     }
 }

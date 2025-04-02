@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6828141752303629686}
   - component: {fileID: 1954262604109145771}
   - component: {fileID: 3907814932459385550}
+  - component: {fileID: 233512802542346842}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Untagged
@@ -131,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2de21350d430ee49a1d7533c4591376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointValue: 10
 --- !u!61 &1954262604109145771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,3 +205,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &233512802542346842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199497171250163945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f0167d12586524e913f8004e97fd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftBound: -40
+  rightBound: 40

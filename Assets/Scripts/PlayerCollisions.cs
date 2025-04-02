@@ -9,11 +9,13 @@ public class PlayerCollisions : MonoBehaviour
         if(collision.transform.tag == "Obstacle")
         {
             gameObject.SetActive(false);
+            GameManager.Instance.isPlaying = false;
+            GameManager.Instance.PauseObstacles();
         }
 
         if(collision.GetComponent<Collectible>() == true)
         {
-            collision.gameObject<Collectible>().Collected;
+            collision.GetComponent<Collectible>().Collected();
         }
     }
 }

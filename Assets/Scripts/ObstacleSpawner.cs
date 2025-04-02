@@ -14,12 +14,8 @@ public class ObstacleSpawner : MonoBehaviour
     public float obstacleSpawnTime = 2f; // This is when we spawn an object
     public float killLimit = -40f;
 
+    public bool canSpawn = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,8 +24,10 @@ public class ObstacleSpawner : MonoBehaviour
         {
             Spawn();
         }
-
-        SpawnLoop();
+        if (GameManager.Instance.canSpawn == true)
+        {
+            SpawnLoop();
+        }
     }
 
     private void SpawnLoop()
@@ -53,6 +51,9 @@ public class ObstacleSpawner : MonoBehaviour
         Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
 
         obstacleRB.velocity = Vector2.left * obstacleSpeed;
+        GameManager.Instance.currentObstacleSpeed = obstacleSpeed;
+
+        GameManager.Instance.activeObstacles.Add(spawnedObstacle);
 
         if(transform.position.x >= killLimit)
         {
