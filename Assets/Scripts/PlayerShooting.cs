@@ -4,36 +4,46 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] private GameObject playerBullet;
-    [SerializeField] private Transform bulletSpawn;
+    private Camera mainCam;
+    private Vector3 mousePos;
 
-    public float shootCountdown;// This is the timer that counts up.
-    private float shootTime;// This is the predetermined time when the enemy shoots a bullet.
-
-    [SerializeField] private float shootTimeMin = 5f;
-    [SerializeField] private float shootTimeMax = 15f;
-
+    public GameObject bullet;
+    public Transform bulletTransform;
+    public bool canFire;
+    private float timer;
+    public float timeBetweenFiring;
 
     // Start is called before the first frame update
     void Start()
     {
-        shootTime = Random.Range(shootTimeMin, shootTimeMax);
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ShootLoop();
-    }
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-    void ShootLoop()
-    {
-        shootCountdown += Time.deltaTime;
-        if (shootCountdown >= shootTime)
+        Vector3 rotation = mousePos - transform.position;
+
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        if (!canFire)
         {
-            Instantiate(playerBullet, bulletSpawn.position, Quaternion.identity);
-            shootCountdown = 0;
-            shootTime = Random.Range(shootTimeMin, shootTimeMax);
+            timer += Time.deltaTime;
+            if (timer > timeBetweenFiring)
+            {
+                canFire = true;
+                timer = 0;
+            }
+        }
+
+        if (Input.GetMouseButton(0) && canFire)
+        {
+            canFire = false;
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         }
     }
 }
