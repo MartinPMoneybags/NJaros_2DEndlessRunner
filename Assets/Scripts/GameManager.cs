@@ -46,16 +46,26 @@ public class GameManager : MonoBehaviour
             currentScore += Time.deltaTime;
         }
 
-        if (Input.GetKeyDown("j"))
+        // Reset game on key press
+        if (Input.GetKeyDown("r"))
         {
-            ResetGame();
+            
+            if (isPlaying == true)
+            {
+                ResetGame();
+            }
+            else
+            {
+                ResetGame();
+                UserInterfaceManager.Instance.GameOverDisplay();
+            }
         }
     }
 
     public void GameOver()
     {
-        currentScore = 0;
         isPlaying = false;
+        UserInterfaceManager.Instance.GameOverDisplay();
     }
 
     public void ResetGame()

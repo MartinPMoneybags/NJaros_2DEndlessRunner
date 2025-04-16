@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D playerRB;
+    [SerializeField] private Animator animator;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float jumpTime = 0.3f;
 
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRB.velocity = Vector2.up * jumpForce;
             isJumping = true;
+            animator.SetBool("jumping", true);
         }
 
 
