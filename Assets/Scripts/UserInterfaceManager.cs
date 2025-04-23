@@ -10,6 +10,7 @@ public class UserInterfaceManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private TextMeshProUGUI ammoDisplay;
+    [SerializeField] private TextMeshProUGUI finalScoreText;
     [SerializeField] private GameObject gameOverPanel;
 
     public void Awake()
@@ -35,6 +36,7 @@ public class UserInterfaceManager : MonoBehaviour
         }
         else
         {
+            finalScoreText.text = "Final Score: " + GameManager.Instance.ScoreDisplay();
             gameOverPanel.SetActive(true);
         }
     }
