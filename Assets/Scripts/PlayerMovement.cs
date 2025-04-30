@@ -36,11 +36,14 @@ public class PlayerMovement : MonoBehaviour
         if (Physics2D.OverlapCircle(feetPos.position, 0.25f, groundLayer) == true)
         {
             isGrounded = true;
+            animator.SetBool("Jump", !isGrounded);
         }
         else
         {
             isGrounded = false;
         }
+
+        
 
 
 
@@ -48,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRB.velocity = Vector2.up * jumpForce;
             isJumping = true;
-            animator.SetBool("jumping", true);
+            animator.SetBool("Jump", true);
         }
 
 
@@ -81,5 +84,16 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.Instance.ResumeObstacles();
         }
+
+        animator.SetFloat("yVelocity", playerRB.velocity.y);
     }
+
+    void GroundCheck()
+    {
+        //isGrounded = false;
+        // Check if the GroundCheckObject is colliding with other
+        // 2D colliders that are in the "Ground" layer
+        // if yes (isgrounded true
+    }
+
 }
