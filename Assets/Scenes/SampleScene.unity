@@ -5050,7 +5050,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.295, y: 0, z: -0.015745312}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 2.4522, y: 2.4522, z: 2.4522}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 15468112}
@@ -5096,8 +5096,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.065157175, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 81aaaf9430eaa7845a2b7c9f86a96974, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5278,6 +5278,7 @@ MonoBehaviour:
   - {fileID: 7659378822195771413, guid: c23dea889d7b5d8499c6a6b9d02218a8, type: 3}
   - {fileID: 5646506922680222258, guid: bec967adeb68ce949a743d9e91357115, type: 3}
   - {fileID: 1102817545470413865, guid: 31a4d835caaf6b5458cfbb7b7dcb10f2, type: 3}
+  - {fileID: 8199497171250163945, guid: a902697a390a1c54da139cdf969e129f, type: 3}
   obstacleSpeed: 5.1
   spawnTimeMin: 2
   spawnTimeMax: 5
@@ -5293,7 +5294,7 @@ Transform:
   m_GameObject: {fileID: 393119226}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.91, y: -2.7, z: 0.04103318}
+  m_LocalPosition: {x: 14.91, y: -2.717, z: 0.04103318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5455,7 +5456,7 @@ GameObject:
   - component: {fileID: 725587712}
   m_Layer: 0
   m_Name: Untitled 21_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
