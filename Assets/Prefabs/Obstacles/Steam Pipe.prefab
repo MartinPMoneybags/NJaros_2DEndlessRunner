@@ -4953,8 +4953,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steamEmitter: {fileID: 586470952963102521}
   steamCollider: {fileID: 5458681314770331926}
-  minInterval: 0.1
-  maxInterval: 0.5
+  minInterval: 1
+  maxInterval: 3
 --- !u!114 &662669881202079124
 MonoBehaviour:
   m_ObjectHideFlags: 0

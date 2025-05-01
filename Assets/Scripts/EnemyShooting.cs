@@ -26,8 +26,6 @@ public class EnemyShooting : MonoBehaviour
 
         if (distance < 20)
         {
-            timer = +Time.deltaTime;
-
             if (timer > 2)
             {
                 timer = 0;

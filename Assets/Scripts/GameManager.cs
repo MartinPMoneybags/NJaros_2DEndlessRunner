@@ -84,10 +84,13 @@ public class GameManager : MonoBehaviour
 
     public void PauseObstacles()
     {
-        foreach (GameObject obstacle in activeObstacles)
+        if(activeObstacles.Count > 0)
         {
-            Rigidbody2D obstacleRB = obstacle.GetComponent<Rigidbody2D>();
-            obstacleRB.velocity = Vector2.left * 0;
+            foreach (GameObject obstacle in activeObstacles)
+            {
+                Rigidbody2D obstacleRB = obstacle.GetComponent<Rigidbody2D>();
+                obstacleRB.velocity = Vector2.left * 0;
+            }
         }
     }
 

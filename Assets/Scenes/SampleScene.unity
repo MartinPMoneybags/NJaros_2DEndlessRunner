@@ -5279,6 +5279,7 @@ MonoBehaviour:
   - {fileID: 5646506922680222258, guid: bec967adeb68ce949a743d9e91357115, type: 3}
   - {fileID: 1102817545470413865, guid: 31a4d835caaf6b5458cfbb7b7dcb10f2, type: 3}
   - {fileID: 8199497171250163945, guid: a902697a390a1c54da139cdf969e129f, type: 3}
+  - {fileID: 4306900353200674201, guid: 22a40f54b352d814cafa730a11d8184b, type: 3}
   obstacleSpeed: 5.1
   spawnTimeMin: 2
   spawnTimeMax: 5

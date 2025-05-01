@@ -8,10 +8,10 @@ public class PlayerCollisions : MonoBehaviour
     {
         if(collision.transform.tag == "Obstacle")
         {
-            gameObject.SetActive(false);
             GameManager.Instance.isPlaying = false;
             GameManager.Instance.PauseObstacles();
             GameManager.Instance.GameOver();
+            gameObject.SetActive(false);
         }
 
         if(collision.GetComponent<Collectible>() == true)

@@ -8,8 +8,9 @@ public class SteamTimer : MonoBehaviour
     public BoxCollider2D steamCollider; // Reference to the Boxcollider2D
     public float minInterval = 1f; // Minimum time between steam bursts
     public float maxInterval = 3f; // Maximum time between steam bursts
-
+    private float interval;
     private float timer;
+
 
     void Start()
     {
@@ -18,12 +19,33 @@ public class SteamTimer : MonoBehaviour
         steamCollider.enabled = false;
 
         // Start the first random burst
-        StartCoroutine(SteamBurst());
+        //StartCoroutine(SteamBurst());
+    }
+
+    void ChooseInterval()
+    {
+        interval = Random.Range(minInterval, maxInterval);
     }
 
     void Update()
     {
         // You can control anything you wan to happen between steam bursts here
+        timer += Time.deltaTime;
+
+       if(timer >= interval)
+        {
+            ChooseInterval();
+            timer = 0;
+            if (steamEmitter.isPlaying)
+            {
+                steamEmitter.Stop();
+            }
+            else
+            {
+                steamEmitter.Play();
+            }
+        }
+
     }
 
     private System.Collections.IEnumerator SteamBurst()
